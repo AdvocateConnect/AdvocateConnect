@@ -9,13 +9,14 @@
 	<title>ADVOCATE CONNECT</title>
 </head>
 
-<body background="main_bg.png">
+<body>
 <section class="first">
 
 <!--LANDING PAGE-->
 <!--Resources-->
 		
-
+<div class="bannerVideo" id="slideShow">
+</div>
 <!-- Navbar -->
 <!-- Navbar -->
 	<div class="container">
@@ -39,7 +40,7 @@
 			<div class="bannerText" id="slideShowText">
 				<div class="active">
 					<h2>Book An Appointment</h2>
-					<p>Schedule your consultation today with our experienced attorneys.</p> 
+		 			<p>Schedule your consultation today with our experienced attorneys.</p> 
 					<a href="index1.html" class="readmore">Click here for appointments</a>
 				</div>
 				<div>
@@ -63,6 +64,7 @@
 <!--Arrow Controls-->
 <script type="text/javascript">
 	const slideShow = document.getElementById('slideShow');
+	const slides = slideShow.getElementsByTagName('video');
 	var index = 0;
 	function nextSlide(){
 		slides[index].classList.remove('active');
@@ -107,7 +109,6 @@
 		<br>
 		<p>Contact Us ↓</p>
 		<p>advsschahar@gmail.com</p>
-		<p></p>
 		<br>
 		<p></p>
 	</section>
