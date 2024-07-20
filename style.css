@@ -6,7 +6,7 @@
 	box-sizing: border-box;
 }
 .first{
-	background-image: url("main_bg.jpg");
+	background-image: url("main_bg.png");
 	min-height: 100vh;
 	height: auto;
 	width: auto;
