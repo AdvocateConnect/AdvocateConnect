@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Book Appointment</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Appointment</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <h2>Book Appointment</h2>
-        <form id="appointmentForm">
+        <form id="appointmentForm" action="submit_form.php" method="POST" onsubmit="return submitForm(event)">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
 
@@ -29,58 +29,23 @@
         </form>
 
         <div id="confirmationMessage" style="display: none;">
-            <p>Your appointment has been successfully booked! We have received your response.</p>
-            <p>Details:</p>
-            <ul>
-                <li>Name: <span id="confirmName"></span></li>
-                <li>Email: <span id="confirmEmail"></span></li>
-                <li>Phone: <span id="confirmPhone"></span></li>
-                <li>Date and Time: <span id="confirmDatetime"></span></li>
-                <li>Message: <span id="confirmMessage"></span></li>
-            </ul>
+            <p>Your appointment has been successfully booked!</p>
             <p>We will contact you shortly to confirm the details.</p>
         </div>
     </div>
 
     <script>
-        document.getElementById('appointmentForm').addEventListener('submit', function(event) {
-            event.preventDefault();
+        function submitForm(event) {
+            event.preventDefault(); // Prevent the form from submitting
 
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                datetime: document.getElementById('datetime').value,
-                message: document.getElementById('message').value
-            };
+            // Normally, you would perform AJAX request or form submission handling here.
+            // For demonstration purpose, simply show the confirmation message and clear the form.
+            document.getElementById('appointmentForm').reset(); // Clear the form fields
+            document.getElementById('appointmentForm').style.display = 'none'; // Hide the form
+            document.getElementById('confirmationMessage').style.display = 'block'; // Show the confirmation message
 
-            fetch('/api/appointments', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    document.getElementById('appointmentForm').reset();
-                    document.getElementById('appointmentForm').style.display = 'none';
-                    document.getElementById('confirmationMessage').style.display = 'block';
-
-                    document.getElementById('confirmName').textContent = formData.name;
-                    document.getElementById('confirmEmail').textContent = formData.email;
-                    document.getElementById('confirmPhone').textContent = formData.phone;
-                    document.getElementById('confirmDatetime').textContent = formData.datetime;
-                    document.getElementById('confirmMessage').textContent = formData.message;
-                } else {
-                    alert('Error booking appointment: ' + data.message);
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        });
+            return false;
+        }
     </script>
 </body>
 </html>
