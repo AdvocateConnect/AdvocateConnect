@@ -1,0 +1,372 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+*{
+	font-family: 'Nunito', sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.first{
+	background-image: url("mainpic.jpg");
+	min-height: 100vh;
+	height: auto;
+	width: auto;
+	background-position: center;
+	background-size: cover;
+}
+
+.first .bannerVideo{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.first .bannerVideo video{
+    position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;	
+	object-fit: cover;
+	opacity: 0;
+}
+.first .bannerVideo video.active{
+    opacity: 1;
+}
+.container{
+	position: relative;
+	padding: 0 100px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	min-height: 100vh;
+	
+}
+
+.container header{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 30px 100px;
+	
+}
+.container header .logo{
+	font-weight: 800;
+	text-transform: uppercase;
+	color: white;
+	font-size: 1.5em;
+	text-decoration: none;
+}
+.container header ul{
+	position: relative;
+	display: flex;
+
+}
+.container ul li{
+	list-style: none;
+	margin: 0 20px;
+	text-decoration: none;
+}
+.container ul li a{
+	position: relative;
+	text-decoration: none;
+	font-size: 18px;
+	padding: 4px 10px;
+	color: black;
+}
+.container header ul li a:hover,
+.container header ul li a.active
+{
+	/* background: #fff; */
+	color: #111;
+}
+.container .content{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+.container .content .bannerText{
+	position: relative;
+	max-width: 700px;
+}
+.container .content .bannerText div{
+	transition: 0.5s ease-in-out;
+	display: none;
+}
+.container .content .bannerText div.active{
+	display: initial;
+} 
+.container .content .bannerText div h2{
+	color: #fff;
+	font-size: 6em;
+	line-height: 1em;
+	font-weight: 700;
+}
+.container .content .bannerText p{
+	color: #fff;
+	font-size: 18px;
+	margin: 20px 0;
+}
+
+.controls {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	display: flex;
+}
+.controls li{
+	width: 70px;
+	height: 70px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #fff;
+	cursor: pointer;
+}
+.controls li:hover{
+	background: yellow;
+}
+.menuIcon
+{
+	display: none;
+}
+@media (max-width: 991px)
+{
+	.container 
+	{
+		padding: 20px;
+	}
+	.container::before
+	{
+		width: 100%;
+	}
+	.container header
+	{
+		padding: 10px 20px;
+	}
+	.container .content .bannerText div h2
+	{
+		font-size: 3em;
+	}
+	.container .content .bannerText
+	{
+		text-align: center;
+	}
+	.container header ul
+	{
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+		background: #fff;
+		z-index: 1000;
+		display: none;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+	}
+	.container header.active ul
+	{
+		display: flex;
+	}
+	.container header ul li 
+	{
+		text-align: center;
+		margin: 10px;
+	}
+	.container header ul li a
+	{
+		color: #333;
+		font-size: 1.5em;
+	}
+	.container header ul li a:hover
+	{
+		color: #f00;
+		cursor: pointer;
+	}
+	.menuIcon
+	{
+		position: fixed;
+		top: 0;
+		right: 0;
+		width: 50px;
+		height: 50px;
+		display: initial;
+		z-index: 10000;
+		background: #fff url(menu.png);
+		background-size: 30px;
+		background-repeat: no-repeat;
+		background-position: center;
+		cursor: pointer;
+	}
+	.menuIcon.active 
+	{
+		background: #fff url(close.png);
+		background-size: 25px;
+		background-repeat: no-repeat;
+		background-position: center;
+		cursor: pointer;	
+	}
+	.sci li a
+	{
+		width: 50px;
+		height: 50px;
+	}
+	.controls li 
+	{
+		width: 60px;
+		height: 60px;
+	}
+
+}
+/*Air*/
+.air
+{
+	width: 80%;
+	margin: auto;
+	text-align: center;
+	padding-top: 100px;
+}
+.air h1
+{
+	font-size: 38px;
+	font-weight: 600;
+}
+.air p
+{
+	color: #777;
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 22px;
+	padding: 10px;
+}
+.totalair
+{
+	margin-top: 5%;
+	display: flex;
+	justify-content: space-between;
+}
+.prosair
+{
+	background:#fff3f3;
+	border-radius: 10px;
+	flex-basis: 31%;
+	margin-top: 2.5;
+	margin-bottom: 5%;
+	padding: 20px 12px;
+	box-sizing: border-box;
+	transition: 0.5s;
+}
+.prosair:hover
+{
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+}
+
+
+
+/*Footer*/
+.footer
+{
+	width: 100%;
+	text-align: center;
+	padding: 30px 0;
+}
+.footer h4
+{
+	margin-bottom: 25px;
+	margin-top: 20px;
+	font-weight: 600;
+}
+
+/*Background Formatting*/
+.second
+{
+	background: black;
+	/* background: linear-gradient(45deg, #252523 , #4c525c);  */
+	/* background-image: url("air.jpg"); */
+	height: auto;
+	width: auto;
+	background-position: center;
+	background-size: cover;
+}
+.second h1
+{
+	color: #fff;
+}
+.second .desca
+{
+	color: white;
+}
+.third
+{
+	/* background-image: url("wotah.jpg"); */
+	background: linear-gradient(45deg, #252523 , #4c525c); 
+	height: auto;
+	width: auto;
+	background-position: center;
+	background-size: cover;
+}
+.third h1
+{
+	color: #fff;
+}
+.third .descw
+{
+	color: #fff;
+}
+.fourth
+{
+	background-image: url("land.jpg");
+	height: auto;
+	width: auto;
+	background-position: center;
+	background-size: cover;
+}
+.fourth h1
+{
+	color: #fff;
+}
+.fourth .desc
+{
+	color: #fff;
+}
+.footer
+{
+	background: #111;
+}
+.footer h4
+{
+	color: #fff;
+}
+.footer p
+{
+	color: #fff;
+}
+
+/*Read More Button*/
+.readmore
+{
+	background: white;
+	border-radius: 6px;
+	flex-basis: 0%;
+	margin-bottom: 5%;
+	padding: 5px 6px;
+	box-sizing: border-box;
+	transition: 0.5s;
+	text-decoration: none;
+	color: #111;
+	font-size: 20px;
+	font-weight: 300px;
+}
+.readmore:hover
+{
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+}
+
