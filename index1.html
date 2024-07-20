@@ -29,7 +29,15 @@
         </form>
 
         <div id="confirmationMessage" style="display: none;">
-            <p>Your appointment has been successfully booked!</p>
+            <p>Your appointment has been successfully booked! We have received your response.</p>
+            <p>Details:</p>
+            <ul>
+                <li>Name: <span id="confirmName"></span></li>
+                <li>Email: <span id="confirmEmail"></span></li>
+                <li>Phone: <span id="confirmPhone"></span></li>
+                <li>Date and Time: <span id="confirmDatetime"></span></li>
+                <li>Message: <span id="confirmMessage"></span></li>
+            </ul>
             <p>We will contact you shortly to confirm the details.</p>
         </div>
     </div>
@@ -59,6 +67,12 @@
                     document.getElementById('appointmentForm').reset();
                     document.getElementById('appointmentForm').style.display = 'none';
                     document.getElementById('confirmationMessage').style.display = 'block';
+
+                    document.getElementById('confirmName').textContent = formData.name;
+                    document.getElementById('confirmEmail').textContent = formData.email;
+                    document.getElementById('confirmPhone').textContent = formData.phone;
+                    document.getElementById('confirmDatetime').textContent = formData.datetime;
+                    document.getElementById('confirmMessage').textContent = formData.message;
                 } else {
                     alert('Error booking appointment: ' + data.message);
                 }
