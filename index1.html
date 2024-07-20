@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h2>Book Appointment</h2>
-        <form id="appointmentForm" action="submit_form.php" method="POST" onsubmit="return submitForm(event)">
+        <form id="appointmentForm">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
 
@@ -35,17 +35,38 @@
     </div>
 
     <script>
-        function submitForm(event) {
-            event.preventDefault(); // Prevent the form from submitting
+        document.getElementById('appointmentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
 
-            // Normally, you would perform AJAX request or form submission handling here.
-            // For demonstration purpose, simply show the confirmation message and clear the form.
-            document.getElementById('appointmentForm').reset(); // Clear the form fields
-            document.getElementById('appointmentForm').style.display = 'none'; // Hide the form
-            document.getElementById('confirmationMessage').style.display = 'block'; // Show the confirmation message
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                datetime: document.getElementById('datetime').value,
+                message: document.getElementById('message').value
+            };
 
-            return false;
-        }
+            fetch('/api/appointments', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('appointmentForm').reset();
+                    document.getElementById('appointmentForm').style.display = 'none';
+                    document.getElementById('confirmationMessage').style.display = 'block';
+                } else {
+                    alert('Error booking appointment: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
     </script>
 </body>
 </html>
