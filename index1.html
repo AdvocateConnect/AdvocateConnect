@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h2>Book Appointment</h2>
-        <form action="submit_form.php" method="POST">
+        <form id="appointmentForm" action="submit_form.php" method="POST" onsubmit="return submitForm(event)">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
 
@@ -27,6 +27,25 @@
 
             <button type="submit">Submit</button>
         </form>
+
+        <div id="confirmationMessage" style="display: none;">
+            <p>Your appointment has been successfully booked!</p>
+            <p>We will contact you shortly to confirm the details.</p>
+        </div>
     </div>
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            // Normally, you would perform AJAX request or form submission handling here.
+            // For demonstration purpose, simply show the confirmation message and clear the form.
+            document.getElementById('appointmentForm').reset(); // Clear the form fields
+            document.getElementById('appointmentForm').style.display = 'none'; // Hide the form
+            document.getElementById('confirmationMessage').style.display = 'block'; // Show the confirmation message
+
+            return false;
+        }
+    </script>
 </body>
 </html>
