@@ -9,7 +9,7 @@
 <body style="background-color:powderblue;">
     <div class="container">
         <h2>Book Appointment</h2>
-        <form id="appointmentForm" action="submit_form.php" method="POST" onsubmit="return submitForm(event)">
+        <form id="appointmentForm" action="https://formspree.io/f/mgvwovkj" method="POST" onsubmit="return submitForm(event)">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
 
@@ -46,14 +46,7 @@
 
             return false;
         }
-    </script>
-    <form action="https://formspree.io/f/mgvwovkj" method="POST">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name">
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email">
-    <button type="submit">Submit</button>
-</form>
+   
 
 </body>
 </html>
